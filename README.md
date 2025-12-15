@@ -16,6 +16,7 @@ Institutions gain visibility into learning performance
 🎯 Key Features
 
 
+
 👩‍🎓 For Students
 
 Personalized learning paths
@@ -27,6 +28,7 @@ Real-time feedback and progress tracking
 Improved focus and reduced burnout
 
 
+
 👨‍🏫 For Teachers
 
 Teach within specific institutions
@@ -36,6 +38,7 @@ Create and manage adaptive content
 Track student mastery, not just task completion
 
 Actionable insights for better teaching
+
 
 
 🏫 For Institutions
