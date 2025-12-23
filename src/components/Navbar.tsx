@@ -1,34 +1,38 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import LumioLogo from "./LumioLogo";
+import { Button } from "@/components/ui/button";
+import lumioLogo from "@/assets/lumino-logo.png";
 
 const Navbar = () => {
+  const handleSignupScroll = () => {
+    const section = document.getElementById("choose-path");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <LumioLogo />
+    <header className="w-full border-b bg-white">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src={lumioLogo} alt="Lumio" className="h-8 w-auto" />
+          <span className="text-xl font-semibold text-gray-900">Lumio</span>
+        </Link>
+
+        {/* Actions */}
         <div className="flex items-center gap-4">
-          <Button
-            asChild
-            variant="ghost"
-            size="lg"
-            className="font-bold text-base px-6"
-          >
-            <Link to="/login">Login</Link>
-          </Button>
+          <Link to="/login" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+            Login
+          </Link>
 
           <Button
-            asChild
-            variant="lumio-primary"
-            size="lg"
-            className="text-base px-8"
+            onClick={handleSignupScroll}
+            className="rounded-full px-6 bg-emerald-500 hover:bg-emerald-600"
           >
-            <Link to="/signup">Sign Up</Link>
+            Sign Up
           </Button>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
