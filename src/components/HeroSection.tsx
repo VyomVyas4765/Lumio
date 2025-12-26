@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -29,13 +29,21 @@ const HeroSection = () => {
             Lumio isn't just a classroom. It's an adaptive ecosystem for students to master skills, instructors to teach freely, and institutions to grow.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up md:justify-start" style={{ animationDelay: '0.4s' }}>
-            <Button variant="lumio-primary" size="lg">
-              Get Started Free
-            </Button>
-            <Button variant="lumio-outline" size="lg">
-              See How It Works
-            </Button>
+          <div
+            className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up md:justify-start"
+            style={{ animationDelay: '0.4s' }}
+          >
+            <Link to="/coming-soon">
+              <Button variant="lumio-primary" size="lg">
+                Get Started Free
+              </Button>
+            </Link>
+
+            <Link to="/coming-soon">
+              <Button variant="lumio-outline" size="lg">
+                See How It Works
+              </Button>
+            </Link>
           </div>
           
           {/* Trust badges */}
@@ -59,12 +67,10 @@ const HeroSection = () => {
           <div className="relative animate-scale-in" style={{ animationDelay: '0.3s' }}>
             <div className="absolute inset-0 -z-10 rounded-3xl bg-primary/5 blur-2xl" />
             <img
-  src="https://i.postimg.cc/k4kKT7Vp/hero-illustration-png.jpg"
-  alt="Lumio adaptive learning illustration showing books, lightbulbs, and connected learning concepts"
-  className="w-full max-w-xl animate-float rounded-3xl md:max-w-2xl lg:max-w-3xl"
-/>
-
-
+              src="https://i.postimg.cc/k4kKT7Vp/hero-illustration-png.jpg"
+              alt="Lumio adaptive learning illustration showing books, lightbulbs, and connected learning concepts"
+              className="w-full max-w-xl animate-float rounded-3xl md:max-w-2xl lg:max-w-3xl"
+            />
           </div>
         </div>
       </div>

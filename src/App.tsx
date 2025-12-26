@@ -1,3 +1,6 @@
+import ComingSoon from "./pages/ComingSoon";
+
+
 import UnifiedSignup from "./pages/Auth/UnifiedSignup";
 import Login from "./pages/Auth/Login";
 import StudentSignUp from "./pages/Auth/StudentSignUp";
@@ -30,6 +33,8 @@ const App = () => (
           <Route path="/student-signup" element={<StudentSignUp />} />
           <Route path="/teacher-signup" element={<TeacherSignUp />} />
           <Route path="/institution-signup" element={<InstitutionSignup />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
+
 
           <Route path="/login" element={<Login />} />
 
