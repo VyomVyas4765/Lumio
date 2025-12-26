@@ -2,7 +2,7 @@ import UnifiedSignup from "./pages/Auth/UnifiedSignup";
 import Login from "./pages/Auth/Login";
 import StudentSignUp from "./pages/Auth/StudentSignUp";
 import TeacherSignUp from "./pages/Auth/TeacherSignUp";
-import InstitutionSignup from "./pages/Auth/InstitutionSignUp";
+import InstitutionSignup from "./pages/Auth/InstitutionSignup";
 
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
