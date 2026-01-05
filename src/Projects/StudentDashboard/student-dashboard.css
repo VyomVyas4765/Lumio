@@ -1,0 +1,158 @@
+/* ===============================
+   Student Dashboard – Scoped Theme
+   =============================== */
+
+.student-dashboard {
+  /* Core */
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --muted: 210 30% 94%;
+  --muted-foreground: 215 25% 40%;
+
+  --border: 214 32% 88%;
+
+  /* Brand */
+  --primary: 175 84% 40%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 15 90% 58%;
+  --accent: 265 70% 58%;
+
+  /* XP / Status */
+  --xp-gold: 45 100% 50%;
+  --success: 145 70% 42%;
+
+  /* Lesson / Level / Streak */
+  --lesson-blue: 210 90% 50%;
+  --level-purple: 265 70% 55%;
+  --streak-orange: 25 100% 50%;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(175 84% 40%),
+    hsl(195 90% 38%)
+  );
+
+  --gradient-xp: linear-gradient(
+    135deg,
+    hsl(265 70% 55%),
+    hsl(290 70% 52%)
+  );
+
+  /* Shadows (FIXED – NO hsl / alpha) */
+  --shadow-card: 0 4px 20px hsla(222, 47%, 11%, 0.08);
+}
+
+/* ===============================
+   Base Bindings
+   =============================== */
+
+.student-dashboard {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.student-dashboard .bg-card {
+  background-color: hsl(var(--card));
+}
+
+.student-dashboard .bg-muted {
+  background-color: hsl(var(--muted));
+}
+
+.student-dashboard .text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+.student-dashboard .text-primary {
+  color: hsl(var(--primary));
+}
+
+.student-dashboard .border-border {
+  border-color: hsl(var(--border));
+}
+
+/* ===============================
+   Cards
+   =============================== */
+
+.student-dashboard .glass-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-card);
+  border-radius: 1rem;
+}
+
+/* ===============================
+   Text & Gradients
+   =============================== */
+
+.student-dashboard .gradient-text {
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.student-dashboard .gradient-text-xp {
+  background-image: var(--gradient-xp);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===============================
+   XP / Streak
+   =============================== */
+
+.student-dashboard .text-xp {
+  color: hsl(var(--xp-gold));
+}
+
+.student-dashboard .text-streak {
+  color: hsl(var(--streak-orange));
+}
+
+/* ===============================
+   Gradients
+   =============================== */
+
+.student-dashboard .bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+.student-dashboard .bg-gradient-xp {
+  background-image: var(--gradient-xp);
+}
+
+/* ===============================
+   BADGES (PostCSS-safe)
+   =============================== */
+
+.student-dashboard .badge-primary {
+  background-color: hsla(175, 84%, 40%, 0.15);
+  color: hsl(var(--primary));
+}
+
+.student-dashboard .badge-accent {
+  background-color: hsla(265, 70%, 58%, 0.15);
+  color: hsl(var(--accent));
+}
+
+.student-dashboard .badge-success {
+  background-color: hsla(145, 70%, 42%, 0.15);
+  color: hsl(var(--success));
+}
+
+/* ===============================
+   Lucide Icons
+   =============================== */
+
+.student-dashboard svg {
+  stroke: currentColor;
+}

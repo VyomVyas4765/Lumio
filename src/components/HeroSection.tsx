@@ -39,7 +39,7 @@ const HeroSection = () => {
               </Button>
             </Link>
 
-            <Link to="/coming-soon">
+            <Link to="/how-it-works">
               <Button variant="lumio-outline" size="lg">
                 See How It Works
               </Button>

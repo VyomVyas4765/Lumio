@@ -3,14 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Eye, EyeOff, BookOpen, Users, Zap } from "lucide-react";
+import { Eye, EyeOff, BookOpen, Users, Zap, ArrowLeft } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import LumioLogo from "@/assets/Lumio,png-Picsart-BackgroundRemover.png";
 
 const StudentSignUp = () => {
   const { toast } = useToast();
+    const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -72,6 +74,17 @@ const StudentSignUp = () => {
 
   return (
     <div className="min-h-screen flex">
+
+       {/* 🔙 BACK BUTTON */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 z-50 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/80 backdrop-blur border text-sm font-medium text-foreground hover:bg-white transition"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back
+      </button>
+
+
       {/* LEFT PANEL — 25% */}
       <div className="hidden lg:flex lg:w-[25%] bg-gradient-to-br from-green-600 via-green-500 to-accent relative overflow-hidden">
         <div className="absolute inset-0">
@@ -268,9 +281,9 @@ const StudentSignUp = () => {
 
           <p className="mt-8 text-center text-muted-foreground opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             Already have an account?{" "}
-            <span className="text-primary font-semibold hover:underline">
-              Sign in
-            </span>
+            <Link to="/login" className="font-semibold text-primary underline">
+              Log In
+            </Link>
           </p>
         </div>
       </div>

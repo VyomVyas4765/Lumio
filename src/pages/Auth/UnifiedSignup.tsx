@@ -1,11 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import LumioLogo from "@/assets/Lumio,png-Picsart-BackgroundRemover.png";
 import { GraduationCap, Users, Building2, ArrowRight } from "lucide-react";
 
 const UnifiedSignup = () => {
+    const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-emerald-600 via-teal-500 to-purple-700 text-white">
+
+      {/* 🔙 BACK BUTTON */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 z-50 flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+      >
+        <ArrowRight className="w-4 h-4 rotate-180" />
+        Back
+      </button>
       
       {/* LEFT INFO PANEL */}
       <div className="hidden lg:flex w-[30%] flex-col justify-center px-12 relative">
@@ -110,7 +121,7 @@ const UnifiedSignup = () => {
           <p className="mt-8 text-center text-muted-foreground">
             Already have an account?{" "}
             <Link to="/login" className="font-semibold text-primary underline">
-              Sign in
+              Log In
             </Link>
           </p>
         </div>

@@ -1,5 +1,10 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+
+/* Global Lumio styles */
 import "./index.css";
+
+/* ✅ Scoped Student Dashboard theme */
+import "./Projects/StudentDashboard/student-dashboard.css";
 
 createRoot(document.getElementById("root")!).render(<App />);

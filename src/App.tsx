@@ -1,11 +1,19 @@
+import HowItWorks from "./pages/HowItWorks";
+
+
+import StudentDashboard from "./Projects/StudentDashboard";
+
 import ComingSoon from "./pages/ComingSoon";
 
-
 import UnifiedSignup from "./pages/Auth/UnifiedSignup";
+
 import Login from "./pages/Auth/Login";
+
 import StudentSignUp from "./pages/Auth/StudentSignUp";
 import TeacherSignUp from "./pages/Auth/TeacherSignUp";
-import InstitutionSignup from "./pages/Auth/InstitutionSignup";
+import InstitutionSignup from "./pages/Auth/InstitutionSignUp";
+
+import { LearningProvider } from "./Projects/StudentDashboard/contexts/LearningContext";
 
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -22,24 +30,29 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
+        {/* ✅ PROVIDE CONTEXT */}
+        <LearningProvider>
+          <Routes>
+            <Route path="/" element={<Index />} />
 
-          {/* Unified Signup */}
-          <Route path="/signup" element={<UnifiedSignup />} />
+            <Route path="/signup" element={<UnifiedSignup />} />
+            <Route path="/login" element={<Login />} />
 
-          {/* Legacy / role pages (still kept) */}
-          <Route path="/student-signup" element={<StudentSignUp />} />
-          <Route path="/teacher-signup" element={<TeacherSignUp />} />
-          <Route path="/institution-signup" element={<InstitutionSignup />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="/student-signup" element={<StudentSignUp />} />
+            <Route path="/teacher-signup" element={<TeacherSignUp />} />
+            <Route path="/institution-signup" element={<InstitutionSignup />} />
 
+            {/* ✅ Student Dashboard */}
+            <Route path="/dashboard/*" element={<StudentDashboard />} />
 
-          <Route path="/login" element={<Login />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </LearningProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

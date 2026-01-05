@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // ⭐️ CHANGED #1 — Added Link
+import { useNavigate, Link } from "react-router-dom";
 import lumioLogo from "@/assets/Lumio,png-Picsart-BackgroundRemover.png";
+import { ArrowLeft } from "lucide-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -9,8 +10,12 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && password) {
-      navigate("/"); // redirect to home
+
+    // TEMP mock auth success
+    const isAuthenticated = email.length > 0 && password.length > 0;
+
+    if (isAuthenticated) {
+      navigate("/dashboard");
     }
   };
 
@@ -23,8 +28,9 @@ export default function Login() {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: linear-gradient(135deg, #10B981 , #F9FAFB );
+          background: linear-gradient(135deg, #10B981, #F9FAFB);
           font-family: Inter, system-ui, sans-serif;
+          position: relative;
         }
 
         .login-card {
@@ -39,26 +45,6 @@ export default function Login() {
         .login-header {
           text-align: center;
           margin-bottom: 24px;
-          
-        }
-
-        .lumino-logo {
-          width: 120px;
-          margin: 0 auto 10px;
-          display: block;
-        }
-
-        .login-header h1 {
-          margin: 0;
-          font-size: 24px;
-          font-weight: 700;
-          color: #111827;
-        }
-
-        .login-header p {
-          margin-top: 4px;
-          font-size: 14px;
-          color: #6b7280;
         }
 
         .login-form {
@@ -74,12 +60,6 @@ export default function Login() {
           font-size: 14px;
         }
 
-        .login-form input:focus {
-          outline: none;
-          border-color: #10B981;
-          box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
-        }
-
         .login-form button {
           margin-top: 6px;
           padding: 12px;
@@ -90,10 +70,6 @@ export default function Login() {
           font-size: 15px;
           font-weight: 600;
           cursor: pointer;
-        }
-
-        .login-form button:hover {
-          background: #059669;
         }
 
         .login-footer {
@@ -109,6 +85,27 @@ export default function Login() {
           text-decoration: none;
         }
 
+        .back-button {
+          position: absolute;
+          top: 24px;
+          left: 24px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 14px;
+          font-weight: 500;
+          color: #374151;
+          background: rgba(255, 255, 255, 0.85);
+          padding: 8px 12px;
+          border-radius: 8px;
+          cursor: pointer;
+          border: none;
+        }
+
+        .back-button:hover {
+          background: white;
+        }
+
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -121,16 +118,20 @@ export default function Login() {
         }
       `}</style>
 
-      {/* JSX */}
       <div className="login-page">
+        {/* 🔙 BACK BUTTON */}
+        <button className="back-button" onClick={() => navigate(-1)}>
+          <ArrowLeft size={16} />
+          Back
+        </button>
+
         <div className="login-card">
           <div className="login-header">
-            {/* ⭐️ CHANGED #2 — Wrapped logo in Link so it navigates home */}
             <Link to="/">
               <img
                 src={lumioLogo}
                 alt="Lumio"
-                className="h-24 w-auto mx-auto y-1"
+                className="h-24 w-auto mx-auto"
               />
             </Link>
 
@@ -159,7 +160,7 @@ export default function Login() {
           </form>
 
           <div className="login-footer">
-            New here? <a href="/signup">Sign Up</a>
+            New here? <Link to="/signup">Sign Up</Link>
           </div>
         </div>
       </div>

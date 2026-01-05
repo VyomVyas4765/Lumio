@@ -11,14 +11,16 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Building2, ShieldCheck, MailCheck } from "lucide-react";
+import { Building2, ShieldCheck, MailCheck, ArrowLeft } from "lucide-react";
 import LumioLogo from "@/assets/Lumio,png-Picsart-BackgroundRemover.png";
 
 const InstitutionSignup = () => {
   const { toast } = useToast();
   const [agreed, setAgreed] = useState(false);
+    const navigate = useNavigate();
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,15 @@ const InstitutionSignup = () => {
 
   return (
     <div className="min-h-screen flex">
+
+      {/* 🔙 BACK BUTTON */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 z-50 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/80 backdrop-blur border text-sm font-medium text-foreground hover:bg-white transition"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back
+      </button>
 
       {/* LEFT PANEL — SAME STYLE AS STUDENT PAGE */}
       <div className="hidden lg:flex lg:w-[25%] bg-gradient-to-br from-purple-700 via-purple-600 to-indigo-600 relative overflow-hidden">

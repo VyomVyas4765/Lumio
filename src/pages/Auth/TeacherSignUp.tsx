@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Eye, EyeOff, Users, BookOpen, Sparkles } from "lucide-react";
+import { Eye, EyeOff, Users, BookOpen, Sparkles, ArrowLeft } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 import LumioLogo from "@/assets/Lumio,png-Picsart-BackgroundRemover.png";
 
 const TeacherSignUp = () => {
+  const navigate = useNavigate();
+
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -65,7 +67,16 @@ const TeacherSignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-orange-200 via-amber-100 to-white dark:from-[#0f0a05] dark:via-[#120d08] dark:to-[#0a0907]">
+    <div className="min-h-screen flex bg-gradient-to-br from-orange-200 via-amber-100 to-white dark:from-[#0f0a05] dark:via-[#120d08] dark:to-[#0a0907] relative">
+
+      {/* 🔙 BACK BUTTON */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 z-50 flex items-center gap-2 text-sm font-medium text-foreground/70 hover:text-foreground transition"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back
+      </button>
 
       {/* LEFT PANEL — 25% */}
       <div className="hidden lg:flex lg:w-[25%] relative overflow-hidden bg-gradient-to-b from-orange-700 via-orange-600 to-orange-500">
@@ -234,9 +245,9 @@ const TeacherSignUp = () => {
 
           <p className="mt-8 text-center text-muted-foreground">
             Already have an account?{" "}
-            <span className="text-primary font-semibold hover:underline cursor-pointer">
-              Sign in
-            </span>
+            <Link to="/login" className="font-semibold text-primary underline">
+              Log In
+            </Link>
           </p>
         </div>
       </div>
