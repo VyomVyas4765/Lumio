@@ -11,7 +11,7 @@ import Login from "./pages/Auth/Login";
 
 import StudentSignUp from "./pages/Auth/StudentSignUp";
 import TeacherSignUp from "./pages/Auth/TeacherSignUp";
-import InstitutionSignup from "./pages/Auth/InstitutionSignUp";
+import InstitutionSignUp from "./pages/Auth/InstitutionSignUp";
 
 import { LearningProvider } from "./Projects/StudentDashboard/contexts/LearningContext";
 
